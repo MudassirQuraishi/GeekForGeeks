@@ -1,17 +1,26 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
-    public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.HashMap;
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+public class GeekForGeeks_1 {
+    public static boolean check(long A[],long B[],int N)
+    {
+        ///Your code here
+        if(A.length != B.length) return false;
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
+        HashMap<Long,Integer> frequencyMap = new HashMap<>();
+        for(long element : A){
+            frequencyMap.put(element, frequencyMap.getOrDefault(element,0)+1);
         }
+
+        for(long element : B){
+            if(!frequencyMap.containsKey(element)) return false;
+            int count = frequencyMap.get(element);
+            if(count == 1) frequencyMap.remove(element);
+            else frequencyMap.put(element,count-1);
+        }
+        return frequencyMap.isEmpty();
     }
+    public static void main(String[] args) {
+
+    }
+
 }
