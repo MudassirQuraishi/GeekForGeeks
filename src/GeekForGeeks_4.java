@@ -1,4 +1,4 @@
-public class GeeksForGeeks_4 {
+public class GeekForGeeks_4 {
     public static int findMissing(int[] arr, int n) {
         // code here
         int commonDiff = (arr[arr.length - 1] - arr[0]) / arr.length;
